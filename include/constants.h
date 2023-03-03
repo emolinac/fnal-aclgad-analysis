@@ -5,6 +5,8 @@
 // Note: At the moment, you should include the path in the name of the file!
 const char * input_fnal_tree  = "../input-files/converted_runs_46dB-att_6800mV.root";
 const char * amplitude_output = "../output-files/amplitude.root";
+const char * noise_output     = "../output-files/noise.root";
+const char * signaltonoise_output = "../output-files/signaltonoise.root";
 
 // NUMERICAL CONSTANTS
 const int nEvents = 5000;
@@ -14,5 +16,8 @@ const double t_base_end  = -6.E-9;
 
 const double t_peak_init = -4.5E-9;
 const double t_peak_end  = -4.0E-9;
+
+const double t_noise_init = t_base_init;
+const double t_noise_end  = t_base_end;
 
 #endif /* CONSTANTS_H */

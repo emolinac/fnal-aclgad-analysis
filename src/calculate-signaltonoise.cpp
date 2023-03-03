@@ -13,7 +13,7 @@ int main(int argc , char* argv[])
     TFile* fin = new TFile(input_fnal_tree,"READ");
 
     // Open the output file
-    TFile* fout = new TFile(amplitude_output,"RECREATE");
+    TFile* fout = new TFile(signaltonoise_output,"RECREATE");
     gROOT->cd();
 
     // Obtain the fnal tree
@@ -40,6 +40,10 @@ int main(int argc , char* argv[])
     double peak_mean_error = h_peak->GetMeanError();
     double amplitude_error = sqrt(peak_mean_error*peak_mean_error + base_mean_error*base_mean_error);
 
+    // Calculate the noise rms
+    double noiserms       = h_base->GetStdDev();
+    double noiserms_error = h_base->GetStdDevError();
+
     // Save the histos
     fout->cd();
     h_base->Write();
@@ -53,6 +57,14 @@ int main(int argc , char* argv[])
     std::cout<<"######################################################################################"<<std::endl;
     std::cout<<"                                                                                      "<<std::endl;
     std::cout<<"The amplitude of the pulse is "<<amplitude<<"+-"<<amplitude_error<<std::endl;
+    std::cout<<"                                                                                      "<<std::endl;
+    std::cout<<"######################################################################################"<<std::endl;
+    std::cout<<"                                                                                      "<<std::endl;
+    std::cout<<"The noise RMS is "<<noiserms<<"+-"<<noiserms_error<<std::endl;
+    std::cout<<"                                                                                      "<<std::endl;
+    std::cout<<"######################################################################################"<<std::endl;
+    std::cout<<"                                                                                      "<<std::endl;
+    std::cout<<"The SNR is "<<amplitude/noiserms<<std::endl;
     std::cout<<"                                                                                      "<<std::endl;
     std::cout<<"######################################################################################"<<std::endl;
 

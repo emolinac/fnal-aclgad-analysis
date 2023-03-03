@@ -9,10 +9,10 @@ ROOTCFLAGS  := $(shell root-config --cflags)
 ROOTLDFLAGS := $(shell root-config --ldflags)
 ROOTLIBS    := $(shell root-config --libs) -lEG
 
-all: ${BIN}/calculate-amplitude
+all: ${BIN}/calculate-signaltonoise
 
-${BIN}/calculate-amplitude: ${SRC}/calculate-amplitude.cpp
-	${CXX} -I${INC} ${ROOTCFLAGS} ${SRC}/calculate-amplitude.cpp -o ${BIN}/calculate-amplitude ${ROOTLIBS}
+${BIN}/calculate-signaltonoise: ${SRC}/calculate-signaltonoise.cpp
+	${CXX} -I${INC} ${ROOTCFLAGS} ${SRC}/calculate-signaltonoise.cpp -o ${BIN}/calculate-signaltonoise ${ROOTLIBS}
 
 clean:
 	rm ${BIN}/*
