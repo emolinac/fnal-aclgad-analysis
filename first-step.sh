@@ -5,7 +5,7 @@ echo "   "
 echo "   "
 echo "This script executes root and shows you a 2D histogram with the shape of the signal to analyze."
 echo "Copy the following command once root has opened:"
-echo "pulse->Draw("channel[1]:time","","colz")"
+echo "pulse->Draw(\"channel[1]:time\",\"\",\"colz\")"
 echo "   "
 echo "   "
 echo "Check the histogram and by eye write the down the following quantities and the put them in the constants.h file:"
@@ -20,4 +20,4 @@ echo "   "
 echo "   "
 echo "____________________________________________________________________________________________________________________"
 
-root -l input-files/converted_runs_40dB-att_6800mV.root
+root -l input-files/converted_runs_66dB-att_6800mV.root
